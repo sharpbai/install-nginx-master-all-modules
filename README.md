@@ -107,7 +107,7 @@ ngx_devel_kit (This module is essential. If you skip it when compiling nginx the
     --with-mail_ssl_module \
     --with-file-aio \
     --with-ipv6 \
-    --with-http_spdy_module \
+    --with-http_v2_module \
     --with-cc-opt='-O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' \
     --with-pcre=/usr/local/src/pcre-8.34 \
     --add-module=/usr/local/src/lua-nginx-module \
