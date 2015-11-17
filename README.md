@@ -74,6 +74,7 @@ Update lua-nginx-module
 lua-nginx-module
 ngx_devel_kit (This module is essential. If you skip it when compiling nginx the lua module will not work)
 
+    cd /usr/local/src/nginx
     ./auto/configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
