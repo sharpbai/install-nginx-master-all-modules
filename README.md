@@ -54,6 +54,11 @@ Install
 
     cd /usr/local/src/
     git clone --depth 1 https://github.com/simpl/ngx_devel_kit
+    
+## Git nginx-sitcky-module
+
+    cd /usr/local/src/
+    git clone https://github.com/lusis/nginx-sticky-module
 
 ## Git lua-nginx-module
 
@@ -105,6 +110,7 @@ ngx_devel_kit (This module is essential. If you skip it when compiling nginx the
     --with-cc-opt='-O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' \
     --with-pcre=/usr/local/src/pcre-8.34 \
     --add-module=/usr/local/src/lua-nginx-module \
+    --add-module=/usr/local/src/nginx-sticky-module \
     --add-module=/usr/local/src/ngx_devel_kit
     make
     make install
