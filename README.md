@@ -37,11 +37,11 @@ You could add lua support for your centos nginx without painful config files cha
 ## Download latest stable Luajit
 
     cd /usr/local/src/
-    git clone --depth 1 https://github.com/LuaDist/luajit.git
+    git clone http://luajit.org/git/luajit-2.0.git
     
 Install
 
-    cd /usr/local/src/luajit/
+    cd /usr/local/src/luajit-2.0/
     cmake .
     make install
     
@@ -69,7 +69,18 @@ Update lua-nginx-module
 
     cd /usr/local/src/lua-nginx-module
     git pull
+    
+## Git lua-resty-redis
 
+    cd /usr/local/src/
+    git clone --depth 1 https://github.com/openresty/lua-resty-redis
+
+## Export luajit path
+export lua lib path
+
+   export LUAJIT_LIB=/usr/local/lib
+   export LUAJIT_INC=/usr/local/include/luajit-2.0
+    
 ## Compile Nginx with :
 lua-nginx-module
 ngx_devel_kit (This module is essential. If you skip it when compiling nginx the lua module will not work)
@@ -109,6 +120,7 @@ ngx_devel_kit (This module is essential. If you skip it when compiling nginx the
     --with-ipv6 \
     --with-http_v2_module \
     --with-cc-opt='-O2 -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' \
+    --with-ld-opt="-Wl,-rpath,/usr/local/lib" \
     --with-pcre=/usr/local/src/pcre-8.34 \
     --add-module=/usr/local/src/lua-nginx-module \
     --add-module=/usr/local/src/nginx-sticky-module-ng \
@@ -116,6 +128,10 @@ ngx_devel_kit (This module is essential. If you skip it when compiling nginx the
     make
     make install
 
+## Copy lua redis lib
+
+    cp -r /usr/local/src/lua-resty-redis/lib/resty /usr/local/share/luajit-2.0.4/
+    
 ## Add init file
 
     chkconfig nginx on
