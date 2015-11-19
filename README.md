@@ -1,10 +1,10 @@
-update-centos-nginx-with-lua-module for Centos 6.x
+update-centos-nginx-with-lua-support for Centos 6.x
 ================================
 
 This module compile latest nginx version and complementary modules on centos 6.x
 The compiled nginx is fully compatible with nginx installed from yum.
 The configure parameters is the same as centos nginx installed from yum except added lua support.
-You could add lua support for your centos nginx without painful config files changed.
+You could add luajit and redis support for your centos nginx without painful config files changed.
 
 ## Installation dependence
 
